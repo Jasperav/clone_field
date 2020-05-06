@@ -13,7 +13,7 @@ mod test {
 
         let v = vec![reference];
 
-        v
+        let cloned_fields = v
             .iter()
             // Why doesn't this works?
             .map(|f| *f.clone())
