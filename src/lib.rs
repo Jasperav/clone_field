@@ -8,7 +8,15 @@ mod test {
 
         let reference = &field;
 
-        // Why isn't this of type 'Field'?
-        let clone: Field = reference.clone();
+        // This works...
+        let clone: Field = *reference.clone();
+
+        let v = vec![reference];
+
+        v
+            .iter()
+            // Why doesn't this works?
+            .map(|f| *f.clone())
+            .collect::<Vec<Field>>();
     }
 }
